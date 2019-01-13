@@ -1,15 +1,15 @@
-%define		kdeappsver	18.12.0
+%define		kdeappsver	18.12.1
 %define		qtver		5.9.0
 %define		kaname		kturtle
 Summary:	kturtle
 Summary(pl.UTF-8):	kturtle
 Name:		ka5-%{kaname}
-Version:	18.12.0
+Version:	18.12.1
 Release:	1
 License:	GPL v2+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/applications/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	9a21986046cbbd9f9772a523ae32af3b
+# Source0-md5:	ea6c7eb990c1367bddc3d0dab1b849f0
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel
 BuildRequires:	Qt5Gui-devel
@@ -25,6 +25,7 @@ BuildRequires:	kf5-ki18n-devel >= 5.15
 BuildRequires:	kf5-kio-devel >= 5.15
 BuildRequires:	kf5-knewstuff-devel >= 5.15
 BuildRequires:	kf5-ktextwidgets-devel >= 5.15
+BuildRequires:	ninja
 BuildRequires:	rpmbuild(macros) >= 1.164
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -42,14 +43,14 @@ be translated.
 install -d build
 cd build
 %cmake \
+	-G Ninja \
 	-DKDE_INSTALL_USE_QT_SYS_PATHS=ON \
 	..
-%{__make}
+%ninja_build
 
 %install
 rm -rf $RPM_BUILD_ROOT
-%{__make} -C build install \
-	DESTDIR=$RPM_BUILD_ROOT
+%ninja_install -C build
 
 %find_lang %{kaname} --all-name --with-kde
 
@@ -67,10 +68,12 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/hicolor/32x32/apps/kturtle.png
 %{_iconsdir}/hicolor/48x48/apps/kturtle.png
 %{_iconsdir}/hicolor/64x64/apps/kturtle.png
-#%%{_datadir}/katepart/syntax/logohighlightstyle.en_GB.xml
-#%%{_datadir}/katepart/syntax/logohighlightstyle.nb.xml
-#%%{_datadir}/katepart/syntax/logohighlightstyle.nds.xml
-#%%{_datadir}/katepart/syntax/logohighlightstyle.nl.xml
+%dir %{_datadir}/katepart
+%dir %{_datadir}/katepart/syntax
+%{_datadir}/katepart/syntax/logohighlightstyle.en_GB.xml
+%{_datadir}/katepart/syntax/logohighlightstyle.nb.xml
+%{_datadir}/katepart/syntax/logohighlightstyle.nds.xml
+%{_datadir}/katepart/syntax/logohighlightstyle.nl.xml
 %{_datadir}/kturtle
 %dir %{_datadir}/kxmlgui5/kturtle
 %{_datadir}/kxmlgui5/kturtle/kturtleui.rc
