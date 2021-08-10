@@ -37,6 +37,13 @@ makes all programming tools available from the user interface. The
 programming language used is TurtleScript which allows its commands to
 be translated.
 
+%description -l pl.UTF-8
+KTurtle to edukacyjne środowisko programistyczne, którego celem jest
+nauczanie programowania tak łatwo, jak to tylko możliwe. Aby to osiągnąć
+KTurtle udostępnia wszystkie narzędzia programistyczne z interfejsu
+użytkownika. Używanym językiem programowania jest TurtleScript, który
+pozwala by jego komendy były przetłumaczone.
+
 %prep
 %setup -q -n %{kaname}-%{version}
 
