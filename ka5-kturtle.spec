@@ -1,16 +1,16 @@
-%define		kdeappsver	21.08.1
+%define		kdeappsver	21.08.2
 %define		kframever	5.56.0
 %define		qtver		5.9.0
 %define		kaname		kturtle
 Summary:	kturtle
 Summary(pl.UTF-8):	kturtle
 Name:		ka5-%{kaname}
-Version:	21.08.1
+Version:	21.08.2
 Release:	1
 License:	GPL v2+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	a76503dd7dfdf52c24bb0e21c0038dd8
+# Source0-md5:	9a906892f3aa0522f5c320d11b9ef1b7
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel
 BuildRequires:	Qt5Gui-devel
