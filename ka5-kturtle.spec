@@ -1,19 +1,19 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeappsver	22.04.3
+%define		kdeappsver	22.08.0
 %define		kframever	5.94.0
 %define		qtver		5.15.2
 %define		kaname		kturtle
 Summary:	kturtle
 Summary(pl.UTF-8):	kturtle
 Name:		ka5-%{kaname}
-Version:	22.04.3
+Version:	22.08.0
 Release:	1
 License:	GPL v2+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	519b0a7bc6f4895cc495533b9d93d725
+# Source0-md5:	4f206d5b31c2e0213d5af42ef3ea24bb
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel
 BuildRequires:	Qt5Gui-devel
@@ -86,13 +86,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/hicolor/32x32/apps/kturtle.png
 %{_iconsdir}/hicolor/48x48/apps/kturtle.png
 %{_iconsdir}/hicolor/64x64/apps/kturtle.png
-%dir %{_datadir}/katepart
-%dir %{_datadir}/katepart/syntax
-%{_datadir}/katepart/syntax/logohighlightstyle.en_GB.xml
-%{_datadir}/katepart/syntax/logohighlightstyle.nb.xml
-%{_datadir}/katepart/syntax/logohighlightstyle.nds.xml
-%{_datadir}/katepart/syntax/logohighlightstyle.nl.xml
-%{_datadir}/kturtle
 %dir %{_datadir}/kxmlgui5/kturtle
 %{_datadir}/kxmlgui5/kturtle/kturtleui.rc
 %{_datadir}/metainfo/org.kde.kturtle.appdata.xml
