@@ -1,19 +1,19 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeappsver	23.04.1
+%define		kdeappsver	23.04.2
 %define		kframever	5.94.0
 %define		qtver		5.15.2
 %define		kaname		kturtle
 Summary:	kturtle
 Summary(pl.UTF-8):	kturtle
 Name:		ka5-%{kaname}
-Version:	23.04.1
+Version:	23.04.2
 Release:	1
 License:	GPL v2+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	8a6f1a007dbc19efee364fc19cfff347
+# Source0-md5:	551e8f20fc9115d6d725b72a681b1f34
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel
 BuildRequires:	Qt5Gui-devel
