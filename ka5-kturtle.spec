@@ -1,34 +1,34 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeappsver	24.01.95
+%define		kdeappsver	23.08.4
 %define		kframever	5.94.0
 %define		qtver		5.15.2
 %define		kaname		kturtle
 Summary:	kturtle
 Summary(pl.UTF-8):	kturtle
 Name:		ka5-%{kaname}
-Version:	24.01.95
-Release:	0.1
+Version:	23.08.4
+Release:	1
 License:	GPL v2+
 Group:		X11/Libraries
-Source0:	https://download.kde.org/unstable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	48b9b04854b88f0252840405c48934d8
+Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
+# Source0-md5:	65cc8832c455dd31a521d5d2adc3ef34
 URL:		http://www.kde.org/
-BuildRequires:	Qt6Core-devel
-BuildRequires:	Qt6Gui-devel
-BuildRequires:	Qt6PrintSupport-devel
-BuildRequires:	Qt6Svg-devel
-BuildRequires:	Qt6Widgets-devel
+BuildRequires:	Qt5Core-devel
+BuildRequires:	Qt5Gui-devel
+BuildRequires:	Qt5PrintSupport-devel
+BuildRequires:	Qt5Svg-devel
+BuildRequires:	Qt5Widgets-devel
 BuildRequires:	gettext-devel
-BuildRequires:	kf6-extra-cmake-modules >= %{kframever}
-BuildRequires:	kf6-kcoreaddons-devel >= %{kframever}
-BuildRequires:	kf6-kcrash-devel >= %{kframever}
-BuildRequires:	kf6-kdoctools-devel >= %{kframever}
-BuildRequires:	kf6-ki18n-devel >= %{kframever}
-BuildRequires:	kf6-kio-devel >= %{kframever}
-BuildRequires:	kf6-knewstuff-devel >= %{kframever}
-BuildRequires:	kf6-ktextwidgets-devel >= %{kframever}
+BuildRequires:	kf5-extra-cmake-modules >= %{kframever}
+BuildRequires:	kf5-kcoreaddons-devel >= %{kframever}
+BuildRequires:	kf5-kcrash-devel >= %{kframever}
+BuildRequires:	kf5-kdoctools-devel >= %{kframever}
+BuildRequires:	kf5-ki18n-devel >= %{kframever}
+BuildRequires:	kf5-kio-devel >= %{kframever}
+BuildRequires:	kf5-knewstuff-devel >= %{kframever}
+BuildRequires:	kf5-ktextwidgets-devel >= %{kframever}
 BuildRequires:	ninja
 BuildRequires:	rpmbuild(macros) >= 1.164
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -42,10 +42,10 @@ be translated.
 
 %description -l pl.UTF-8
 KTurtle to edukacyjne środowisko programistyczne, którego celem jest
-nauczanie programowania tak łatwo, jak to tylko możliwe. Aby to
-osiągnąć KTurtle udostępnia wszystkie narzędzia programistyczne z
-interfejsu użytkownika. Używanym językiem programowania jest
-TurtleScript, który pozwala by jego komendy były przetłumaczone.
+nauczanie programowania tak łatwo, jak to tylko możliwe. Aby to osiągnąć
+KTurtle udostępnia wszystkie narzędzia programistyczne z interfejsu
+użytkownika. Używanym językiem programowania jest TurtleScript, który
+pozwala by jego komendy były przetłumaczone.
 
 %prep
 %setup -q -n %{kaname}-%{version}
@@ -75,8 +75,15 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{kaname}.lang
 %defattr(644,root,root,755)
+/etc/xdg/kturtle.knsrc
 %attr(755,root,root) %{_bindir}/kturtle
 %{_desktopdir}/org.kde.kturtle.desktop
-%{_iconsdir}/hicolor/*x*/apps/kturtle.png
+%{_iconsdir}/hicolor/128x128/apps/kturtle.png
+%{_iconsdir}/hicolor/16x16/apps/kturtle.png
+%{_iconsdir}/hicolor/22x22/apps/kturtle.png
+%{_iconsdir}/hicolor/32x32/apps/kturtle.png
+%{_iconsdir}/hicolor/48x48/apps/kturtle.png
+%{_iconsdir}/hicolor/64x64/apps/kturtle.png
+%dir %{_datadir}/kxmlgui5/kturtle
+%{_datadir}/kxmlgui5/kturtle/kturtleui.rc
 %{_datadir}/metainfo/org.kde.kturtle.appdata.xml
-%{_datadir}/knsrcfiles/kturtle.knsrc
